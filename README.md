@@ -390,3 +390,19 @@ int main(int argc, char* argv[]) {
     return 0;
 }
 ```
+## Exp-8 Advanced Batch Scripting:
+### Create a batch script named "BackupScript.bat" that creates a backup of files with the ".docx" extension from the "Documents" folder to a new folder named "DocBackup" on the desktop:
+```bat
+@echo off
+set "source_folder=%USERPROFILE%\Documents"
+set "destination_folder=%USERPROFILE%\Desktop\DocBackup"
+
+echo Creating backup folder...
+mkdir "%destination_folder%" 2>nul
+
+echo Copying .docx files from Documents folder to DocBackup folder...
+xcopy "%source_folder%\*.docx" "%destination_folder%\" /s /i /y >nul
+
+echo Backup completed.
+pause
+```
